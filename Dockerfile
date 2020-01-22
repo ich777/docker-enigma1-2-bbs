@@ -3,7 +3,7 @@ FROM ich777/debian-baseimage
 LABEL maintainer="admin@minenet.at"
 
 RUN apt-get update && \
-	apt-get -y install --no-install-recommends curl gcc pyhton2.7 arj p7zip-full lhasa unrar lrzsz libimage-exiftool-perl xdms unzip && \
+	apt-get -y install --no-install-recommends curl gcc python2.7 arj p7zip-full lhasa unrar-free lrzsz libimage-exiftool-perl xdms unzip && \
 	curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 	apt-get -y install --no-install-recommends nodejs && \
 	rm -rf /var/lib/apt/lists/*
