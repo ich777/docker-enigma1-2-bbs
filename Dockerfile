@@ -11,6 +11,7 @@ RUN apt-get update && \
 ENV DATA_DIR="/enigma-bbs"
 ENV FORCE_UPDATE=""
 ENV ENIGMABBS_DL_URL="https://github.com/NuSkooler/enigma-bbs/archive/master.zip"
+ENV NVM_URI="https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh"
 ENV UMASK=000
 ENV UID=99
 ENV GID=100
