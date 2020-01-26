@@ -45,3 +45,25 @@ else
 fi
 cd ${DATA_DIR}/enigma-bbs
 npm install
+
+echo "---Preparing Server---"
+echo "---Checking for configuration files---"
+if [ ! -f ${DATA_DIR}/enigma-bbs/config/config.hjson ]; then
+   	echo "---Configuration files not found downloading---"
+	cd ${DATA_DIR}/enigma-bbs/config
+	if wget -q -nc --show-progress --progress=bar:force:noscroll https://github.com/ich777/docker-enigma1-2-bbs/raw/master/config/config.tar ; then
+		echo "---Successfully downloaded configuration files---"
+	else
+       	echo "---Can't download configuration files, putting server into sleep mode---"
+		sleep infinity
+	fi
+    tar -xvf config.tar
+    rm config.tar
+else
+   	echo "---Configruation files found!---"
+fi
+chmod -R 777 ${DATA_DIR}
+
+echo "---Starting Server---"
+cd ${DATA_DIR}/enigma-bbs
+${DATA_DIR}/enigma-bbs/main.js
