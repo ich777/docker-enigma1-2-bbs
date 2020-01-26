@@ -3,7 +3,7 @@ FROM ich777/debian-baseimage
 LABEL maintainer="admin@minenet.at"
 
 RUN apt-get update && \
-	apt-get -y install --no-install-recommends curl git gcc python2.7 arj p7zip-full lhasa unrar-free lrzsz libimage-exiftool-perl xdms make build-essential && \
+	apt-get -y install --no-install-recommends curl git gcc python2.7 arj p7zip-full lhasa unrar-free lrzsz libimage-exiftool-perl xdms make build-essential libasound2 libasound2-data libasyncns0 libbsd0 libcaca0 libcap2 libdbus-1-3 libflac8 libfontenc1 libfreetype6 libgpm2 libice6 libogg0 libpng16-16 libpulse0 libsdl1.2debian libslang2 libsm6 libsndfile1 libvorbis0a libvorbisenc2 libwrap0 libx11-6 libx11-data libx11-xcb1 libxau6 libxcb1 libxdmcp6 libxext6 libxi6 libxtst6 libxxf86vm1 x11-common xfonts-encodings xfonts-utils && \
 	curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 	apt-get -y install --no-install-recommends nodejs && \
 	rm -rf /var/lib/apt/lists/*
