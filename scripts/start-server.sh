@@ -31,3 +31,17 @@ fi
 echo "---Setting up NVM---"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install 10
+nvm use 10
+nvm alias default 10
+
+echo "---Checking if ENiGMA½ is installed---"
+cd ${DATA_DIR}
+if git clone ${ENIGMABBS_DL_URL} ; then
+	echo "---Successfully downloaded ENiGMA½---"
+else
+	echo "---Can't download ENiGMA½, putting server into sleep mode---"
+    sleep infinity
+fi
+cd ${DATA_DIR}/enigma-bbs
+npm install
