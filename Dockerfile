@@ -3,15 +3,16 @@ FROM ich777/debian-baseimage
 LABEL maintainer="admin@minenet.at"
 
 RUN apt-get update && \
-	apt-get -y install --no-install-recommends curl git gcc python2.7 arj p7zip-full lhasa unrar-free lrzsz libimage-exiftool-perl xdms && \
+	apt-get -y install --no-install-recommends curl git gcc python2.7 arj p7zip-full lhasa unrar-free lrzsz libimage-exiftool-perl xdms make build-essential && \
 	curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 	apt-get -y install --no-install-recommends nodejs && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV DATA_DIR="/enigma-bbs"
 ENV FORCE_UPDATE=""
-ENV ENIGMABBS_DL_URL="https://github.com/NuSkooler/enigma-bbs/archive/master.zip"
+ENV ENIGMABBS_DL_URL="https://github.com/NuSkooler/enigma-bbs.git"
 ENV NVM_URI="https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh"
+ENV NVM_F_U=""
 ENV UMASK=000
 ENV UID=99
 ENV GID=100
