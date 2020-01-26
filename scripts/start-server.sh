@@ -2,9 +2,6 @@
 echo "---Setting umask to ${UMASK}---"
 umask ${UMASK}
 
-echo "---Sleep zZz---"
-sleep infinity
-
 echo "---Checking if NVM is installed---"
 if [ ! -f ${DATA_DIR}/.nvm/nvm.sh ]; then
 	echo "---NVM not found, installing---"
@@ -35,16 +32,33 @@ nvm install 10
 nvm use 10
 nvm alias default 10
 
-echo "---Checking if ENiGMA½ is installed---"
-cd ${DATA_DIR}
-if git clone ${ENIGMABBS_DL_URL} ; then
-	echo "---Successfully downloaded ENiGMA½---"
+echo "---Checking if ENiGMA½ BBS is installed---"
+if [ ! -f ${DATA_DIR}/enigma-bbs/main.js ]; then
+	echo "---ENiGMA½ BBS not installed, installing...---"
+	cd ${DATA_DIR}
+	if git clone ${ENIGMABBS_DL_URL} ; then
+		echo "---Successfully downloaded ENiGMA½---"
+	else
+		echo "---Can't download ENiGMA½, putting server into sleep mode---"
+	    sleep infinity
+	fi
+	cd ${DATA_DIR}/enigma-bbs
+	npm install
 else
-	echo "---Can't download ENiGMA½, putting server into sleep mode---"
-    sleep infinity
+	echo "---ENiGMA½ BBS found!---"
 fi
-cd ${DATA_DIR}/enigma-bbs
-npm install
+
+if [ "${ENIGMABBS_F_U}" == "true" ]; then
+	echo "---Force Update of ENiGMA½ BBS---"
+    cd ${DATA_DIR}/enigma-bbs
+    if git pull ; then
+    	echo "---Git Pull successfull---"
+	else
+    	echon "---Git Pull unsuccesfull, putting server into sleep mode---"
+        sleep infinity
+	fi
+    npm update
+fi
 
 echo "---Preparing Server---"
 echo "---Checking for configuration files---"
