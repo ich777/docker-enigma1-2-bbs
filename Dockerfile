@@ -13,6 +13,7 @@ ENV FORCE_UPDATE=""
 ENV ENIGMABBS_DL_URL="https://github.com/NuSkooler/enigma-bbs.git"
 ENV NVM_URI="https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh"
 ENV ENIGMABBS_F_U=""
+ENV NVM_V=10
 ENV NVM_F_U=""
 ENV UMASK=000
 ENV UID=99
