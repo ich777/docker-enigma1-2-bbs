@@ -28,9 +28,9 @@ fi
 echo "---Setting up NVM---"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm install 10
-nvm use 10
-nvm alias default 10
+nvm install ${NVM_V}
+nvm use ${NVM_V}
+nvm alias default ${NVM_V}
 
 echo "---Checking if ENiGMA½ BBS is installed---"
 if [ ! -f ${DATA_DIR}/enigma-bbs/main.js ]; then
