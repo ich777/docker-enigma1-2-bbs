@@ -1,7 +1,4 @@
 #!/bin/bash
-echo "---Setting umask to ${UMASK}---"
-umask ${UMASK}
-
 echo "---Checking if NVM is installed---"
 if [ ! -f ${DATA_DIR}/.nvm/nvm.sh ]; then
 	echo "---NVM not found, installing---"
@@ -76,7 +73,7 @@ if [ ! -f ${DATA_DIR}/enigma-bbs/config/config.hjson ]; then
 else
    	echo "---Configruation files found!---"
 fi
-chmod -R 777 ${DATA_DIR}
+chmod -R ${DATA_PERM} ${DATA_DIR}
 
 echo "---Starting Server---"
 cd ${DATA_DIR}/enigma-bbs
