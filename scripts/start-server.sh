@@ -1,4 +1,9 @@
 #!/bin/bash
+echo "---DEPRECATED - DEPRECATED - DEPRECATED - DEPRECATED - DEPRECATED---"
+echo "----The container needs to be rewritten to work properly again!-----"
+echo "---DEPRECATED - DEPRECATED - DEPRECATED - DEPRECATED - DEPRECATED---"
+sleep infinity
+
 echo "---Checking if NVM is installed---"
 if [ ! -f ${DATA_DIR}/.nvm/nvm.sh ]; then
 	echo "---NVM not found, installing---"
