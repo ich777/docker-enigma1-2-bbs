@@ -4,7 +4,7 @@ LABEL maintainer="admin@minenet.at"
 
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends curl git gcc python2.7 arj p7zip-full lhasa unrar-free lrzsz libimage-exiftool-perl xdms make build-essential && \
-	curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+	curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
 	apt-get -y install --no-install-recommends nodejs && \
 	rm -rf /var/lib/apt/lists/*
 
